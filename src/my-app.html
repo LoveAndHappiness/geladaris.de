@@ -84,12 +84,12 @@
         <iron-pages
             selected="[[page]]"
             attr-for-selected="name"
-            fallback-selection="view404"
+            fallback-selection="404"
             role="main">
-          <my-home name="home"></my-home>
-          <my-leistungen name="leistungen"></my-leistungen>
-          <my-kontakt name="kontakt"></my-kontakt>
-          <my-view404 name="view404"></my-view404>
+          <page-home name="home"></page-home>
+          <page-leistungen name="leistungen"></page-leistungen>
+          <page-kontakt name="kontakt"></page-kontakt>
+          <page-view404 name="view404"></page-404>
         </iron-pages>
       </app-header-layout>
     </app-drawer-layout>
@@ -117,7 +117,7 @@
 
       _pageChanged: function(page) {
         // Load page import on demand. Show 404 page if fails
-        var resolvedPageUrl = this.resolveUrl('my-' + page + '.html');
+        var resolvedPageUrl = this.resolveUrl('views/page-' + page + '.html');
         this.importHref(resolvedPageUrl, null, this._showPage404, true);
       },
 
