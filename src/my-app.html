@@ -53,7 +53,7 @@
       }
     </style>
 
-    <app-location route="{{route}}"></app-location>
+    <app-location route="{{route}}" use-hash-as-path></app-location>
     <app-route
         route="{{route}}"
         pattern="/:page"
@@ -65,9 +65,10 @@
       <app-drawer>
         <app-toolbar>Menu</app-toolbar>
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-          <a name="view1" href="/view1">View One</a>
-          <a name="view2" href="/view2">View Two</a>
-          <a name="view3" href="/view3">View Three</a>
+          <a name="view1" href="/#/view1">View One</a>
+          <a name="view2" href="/#/view2">View Two</a>
+          <a name="view3" href="/#/view3">View Three</a>
+          <a name="kontakt" href="/#/kontakt">Kontakt</a>
         </iron-selector>
       </app-drawer>
 
@@ -89,6 +90,7 @@
           <my-view1 name="view1"></my-view1>
           <my-view2 name="view2"></my-view2>
           <my-view3 name="view3"></my-view3>
+          <my-kontakt name="kontakt"></my-kontakt>
           <my-view404 name="view404"></my-view404>
         </iron-pages>
       </app-header-layout>
