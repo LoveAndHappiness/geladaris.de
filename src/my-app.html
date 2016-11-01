@@ -67,43 +67,30 @@
         data="{{routeData}}"
         tail="{{subroute}}"></app-route>
 
-    <paper-drawer-panel>
-      <!-- Drawer content -->
-      <paper-header-panel drawer>
+    <paper-scroll-header-panel condenses reveals effects="waterfall" main>     
+      <paper-toolbar class="tall">
+        <img src="http://imgur.com/kFmngW1.jpg" alt="">
 
-      </paper-header-panel>
+        <paper-tabs selected="{{page}}" attr-for-selected="name" class="bottom self-end" style="width: 450px;">
+          <paper-tab link name="home">
+            <a href="#/home" tabindex="-1">HOME</a>
+          </paper-tab>
+          <paper-tab link name="leistungen">
+            <a href="#/leistungen" tabindex="-1">LEISTUNGEN</a>
+          </paper-tab>
+          <paper-tab link name="kontakt">
+            <a href="#/kontakt" tabindex="-1">KONTAKT</a>
+          </paper-tab>
+        </paper-tabs>
+      </paper-toolbar>
+      <iron-pages selected="[[page]]" attr-for-selected="name" fallback-selection="404" role="main">
+        <page-home name="home"></page-home>
+        <page-leistungen name="leistungen"></page-leistungen>
+        <page-kontakt name="kontakt"></page-kontakt>
+        <page-404 name="404"></page-404>
+      </iron-pages>
+    </paper-scroll-header-panel>
 
-      <!-- Main content -->
-      <paper-scroll-header-panel condenses reveals effects="waterfall" main>
-
-        
-          <paper-toolbar class="tall">
-            <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
-            <img src="http://imgur.com/kFmngW1.jpg" alt="">
-
-            <paper-tabs selected="{{page}}" attr-for-selected="name" class="bottom self-end" style="width: 450px;">
-              <paper-tab link name="home">
-                <a href="#/home" tabindex="-1">HOME</a>
-              </paper-tab>
-              <paper-tab link name="leistungen">
-                <a href="#/leistungen" tabindex="-1">LEISTUNGEN</a>
-              </paper-tab>
-              <paper-tab link name="kontakt">
-                <a href="#/kontakt" tabindex="-1">KONTAKT</a>
-              </paper-tab>
-            </paper-tabs>
-
-          </paper-toolbar>
-
-
-        <iron-pages selected="[[page]]" attr-for-selected="name" fallback-selection="404" role="main">
-          <page-home name="home"></page-home>
-          <page-leistungen name="leistungen"></page-leistungen>
-          <page-kontakt name="kontakt"></page-kontakt>
-          <page-404 name="404"></page-404>
-        </iron-pages>
-      </paper-scroll-header-panel>
-    </paper-drawer-panel>
   </template>
 
   <script>
