@@ -28,26 +28,23 @@
         display: block;
       }
 
-      .drawer-list {
-        margin: 0 20px;
-      }
+      paper-scroll-header-panel {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: var(--paper-grey-200, #eee);
 
-      .drawer-list a {
-        display: block;
+        /* background for toolbar when it is at its full size */
+        --paper-scroll-header-panel-full-header: {
+          /*background-image: url(images/bg2.jpg);*/
+        };
 
-        padding: 0 16px;
-
-        text-decoration: none;
-
-        color: var(--app-secondary-color);
-
-        line-height: 40px;
-      }
-
-      .drawer-list a.iron-selected {
-        color: black;
-
-        font-weight: bold;
+        /* background for toolbar when it is condensed */
+        --paper-scroll-header-panel-condensed-header: {
+          background-color: transparent;
+        };
       }
 
       .self-end {
@@ -73,20 +70,15 @@
     <paper-drawer-panel>
       <!-- Drawer content -->
       <paper-header-panel drawer>
-        <app-toolbar>Menu</app-toolbar>
-        <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-          <a name="home" href="/#/home">Home</a>
-          <a name="leistungen" href="/#/leistungen">Leistungen</a>
-          <a name="kontakt" href="/#/kontakt">Kontakt</a>
-        </iron-selector>
+
       </paper-header-panel>
 
       <!-- Main content -->
       <paper-scroll-header-panel condenses reveals effects="waterfall" main>
 
         
-          <paper-toolbar class="medium-tall">
-            <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
+          <paper-toolbar class="tall">
+            <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
             <img src="http://imgur.com/kFmngW1.jpg" alt="">
 
             <paper-tabs selected="{{page}}" attr-for-selected="name" class="bottom self-end" style="width: 450px;">
