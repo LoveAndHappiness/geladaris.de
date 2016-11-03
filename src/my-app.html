@@ -75,19 +75,24 @@
       .self-end {
         @apply(--layout-self-end);
       }
+
+      .logo_area {
+        margin: 50px 10px!important;
+      }
     </style>
 
     <app-location route="{{route}}" use-hash-as-path></app-location>
 
-    <app-route
-        route="{{route}}"
-        pattern="/:page"
-        data="{{routeData}}"
-        tail="{{subroute}}"></app-route>
+    <app-route route="{{route}}" pattern="/:page" data="{{routeData}}" tail="{{subroute}}"></app-route>
 
     <paper-scroll-header-panel condenses reveals effects="waterfall" main>     
       <paper-toolbar class="tall top">
-        <img src="http://imgur.com/kFmngW1.jpg" alt="">
+        <div class="logo_area">
+          <a href="#/home" title="Geladaris Immobilien Logo">
+            <img src="../images/logo/logo.jpg" alt="Geladaris Immobilien Logo" class="logo">
+          </a>       
+        </div>
+        
 
         <paper-tabs selected="{{page}}" attr-for-selected="name" class="bottom self-end ok" style="width: 450px;">
           <paper-tab link name="home">
@@ -101,6 +106,8 @@
           </paper-tab>
         </paper-tabs>
       </paper-toolbar>
+
+
       <iron-pages selected="[[page]]" attr-for-selected="name" fallback-selection="404" role="main">
         <page-home name="home"></page-home>
         <page-leistungen name="leistungen"></page-leistungen>
