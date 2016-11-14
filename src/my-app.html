@@ -1,10 +1,4 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
-<!-- <link rel="import" href="../bower_components/app-layout/app-drawer/app-drawer.html">
-<link rel="import" href="../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
-<link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
-<link rel="import" href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
-<link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html"> -->
-<link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
 <link rel="import" href="../bower_components/app-route/app-location.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
@@ -56,6 +50,15 @@
         };
       }
 
+      paper-toolbar.tall .title {
+        -webkit-transform-origin: left center;
+        transform-origin: left center;
+      }
+
+      paper-toolbar #Logo {
+
+      }
+
       paper-tabs {
         --paper-tabs: {};
         --paper-tabs-selection-bar-color: #022e53;
@@ -82,29 +85,31 @@
     </style>
 
     <app-location route="{{route}}" use-hash-as-path></app-location>
-
     <app-route route="{{route}}" pattern="/:page" data="{{routeData}}" tail="{{subroute}}"></app-route>
 
     <paper-scroll-header-panel condenses reveals effects="waterfall" main>     
-      <paper-toolbar class="tall top">
-        <div class="logo_area">
+      <paper-toolbar class="tall" id="mainToolbar">
+        <div class="top"></div>
+
+        <div class="middle">
           <a href="#/home" title="Geladaris Immobilien Logo">
             <img src="../images/logo/logo.jpg" alt="Geladaris Immobilien Logo" class="logo">
-          </a>       
+          </a>  
         </div>
         
-
-        <paper-tabs selected="{{page}}" attr-for-selected="name" class="bottom self-end ok" style="width: 450px;">
-          <paper-tab link name="home">
-            <a href="#/home" tabindex="-1">HOME</a>
-          </paper-tab>
-          <paper-tab link name="leistungen">
-            <a href="#/leistungen" tabindex="-1">LEISTUNGEN</a>
-          </paper-tab>
-          <paper-tab link name="kontakt">
-            <a href="#/kontakt" tabindex="-1">KONTAKT</a>
-          </paper-tab>
-        </paper-tabs>
+        <div class="bottom self-end">
+          <paper-tabs selected="{{page}}" attr-for-selected="name" class="" style="width: 450px;">
+            <paper-tab link name="home">
+              <a href="#/home" tabindex="-1">HOME</a>
+            </paper-tab>
+            <paper-tab link name="leistungen">
+              <a href="#/leistungen" tabindex="-1">LEISTUNGEN</a>
+            </paper-tab>
+            <paper-tab link name="kontakt">
+              <a href="#/kontakt" tabindex="-1">KONTAKT</a>
+            </paper-tab>
+          </paper-tabs>
+        </div>
       </paper-toolbar>
 
 
@@ -128,6 +133,39 @@
           reflectToAttribute: true,
           observer: '_pageChanged'
         }
+      },
+
+      listeners: {
+        'paper-header-transform': '_transformHeader'
+      },
+
+      _transformHeader: function (e) {
+        var appName = this.$$('#mainToolbar');
+        var middleContainer = this.$$('#mainToolbar .middle');
+        var bottomContainer = this.$$('#mainToolbar .bottom');
+
+        var detail = e.detail;
+        var heightDiff = detail.height - detail.condensedHeight;
+        var yRatio = Math.min(1, detail.y / heightDiff);
+        // appName max size when condensed. The smaller the number the smaller the condensed size.
+        var maxMiddleScale = 0.50;
+        var auxHeight = heightDiff - detail.y;
+        var auxScale = heightDiff / (1 - maxMiddleScale);
+        var scaleMiddle = Math.max(maxMiddleScale, auxHeight / auxScale + maxMiddleScale);
+        var scaleBottom = 1 - yRatio;
+
+        // Move/translate middleContainer
+        Polymer.Base.transform('translate3d(0,' + yRatio * 100 + '%,0)', middleContainer);
+
+        // Scale bottomContainer and bottom sub title to nothing and back
+        Polymer.Base.transform('scale(' + scaleBottom + ') translateZ(0)', bottomContainer);
+
+        // Scale middleContainer appName
+        Polymer.Base.transform('scale(' + scaleMiddle + ') translateZ(0)', appName);
+      },
+
+      ready: function () {
+
       },
 
       observers: [
