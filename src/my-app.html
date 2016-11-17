@@ -2,10 +2,10 @@
 <link rel="import" href="../bower_components/app-route/app-location.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
-<link rel="import" href="../bower_components/iron-selector/iron-selector.html">
-<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
-<link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
 <link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/paper-drawer-panel/paper-drawer-panel.html">
 <link rel="import" href="../bower_components/paper-header-panel/paper-header-panel.html">
 <link rel="import" href="../bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
@@ -14,177 +14,263 @@
 <link rel="import" href="my-icons.html">
 
 <dom-module id="my-app">
-  <template>
-    <style>
-      :host {
-        --app-primary-color: #4285f4;
-        --app-secondary-color: black;
+	<template>
+		<style>
+            :host {
+                display: block;
+            }
 
-        display: block;
-      }
+            #mainToolbar {
+                background-color: white;
+                color: #727272;
+            }
 
-      paper-scroll-header-panel {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background-color: var(--paper-grey-200, #eee);
+            .Logo__image {
+                width: auto;
+                height: 63px;
+            }
 
-        /* background for toolbar when it is at its full size */
-        --paper-scroll-header-panel-full-header: {
-          /*background-image: url(images/bg2.jpg);*/
-        };
+            iron-pages section #about .hero {
+                height: calc(100vh - 192px);
+            }
+            iron-pages section #about #two {
+                background: lightblue;
+            }
 
-        /* background for toolbar when it is condensed */
-        --paper-scroll-header-panel-condensed-header: {
-          background-color: transparent;
-        };
-      }
+            #about #one {
+                background: url("http://media.istockphoto.com/photos/this-is-the-essence-of-me-picture-id501196539?s=2048x2048") no-repeat center center;
+                background-size: cover;
+            }
+            
+            paper-scroll-header-panel {
+                position: absolute;
+                top: 0px;
+                bottom: 0px;
+                left: 0px;
+                right: 0px;
+            }
 
-      paper-toolbar {
-        --paper-toolbar-background: #fff;
-        --paper-toolbar-title: {
-          font-style: italic;
-          font-weight: bold;
-        };
-      }
+            /***********************************/
+            /*         General Styles          */
+            /***********************************/
+            /***********************************/
+            /*              LINKS              */
+            /***********************************/
+            
+            .link {
+                @apply(--layout-horizontal);
+                @apply(--layout-center-center);
+                text-decoration: none;
+                color: var(--secondary-text-color);
+                text-transform: uppercase;
+                height: 100%;
+            }
 
-      paper-toolbar.tall .title {
-        -webkit-transform-origin: left center;
-        transform-origin: left center;
-      }
+            #drawerToolbar {
+                color: var(--secondary-text-color);
+                background-color: var(--drawer-menu-color);
+                border-bottom: var(--drawer-toolbar-border-color);
+            }
 
-      paper-toolbar #Logo {
+            paper-menu iron-icon {
+                margin-right: 33px;
+                opacity: 0.54;
+            }
 
-      }
+            .paper-menu > .iron-selected {
+                color: var(--dark-primary-color);
+            }
 
-      paper-tabs {
-        --paper-tabs: {};
-        --paper-tabs-selection-bar-color: #022e53;
-      }
+            paper-menu a {
+                @apply(--layout-horizontal);
+                @apply(--layout-center);
+                text-decoration: none;
+                color: var(--menu-link-color);
+                font-family: 'Roboto', 'Noto', sans-serif;
+                -webkit-font-smoothing: antialiased;
+                text-rendering: optimizeLegibility;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 24px;
+                min-height: 48px;
+                padding: 0 16px;
+            }
 
-      paper-tab[link] a {
-        @apply(--layout-horizontal);
-        @apply(--layout-center-center);
-        color: #022e53;
-        text-decoration: none;
-      }
+            paper-toolbar.tall .app-name {
+                font-size: 40px;
+                font-weight: 300;
+                /* Required for main area's paper-scroll-header-panel custom condensing transformation */
+                
+                -webkit-transform-origin: left center;
+                transform-origin: left center;
+            }
 
-      paper-tab {
-        --paper-tab-ink: #022e53;
-      }
+            #mainToolbar {
+                /*box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);*/
+            }
 
-      .self-end {
-        @apply(--layout-self-end);
-      }
+            #mainToolbar .middle-container {
+                height: 100%;
+                margin-left: 48px;
+            }
 
-      .logo_area {
-        margin: 50px 10px!important;
-      }
-    </style>
+            #mainToolbar:not(.tall) .middle {
+                font-size: 18px;
+                padding-bottom: 0;
+            }
 
-    <app-location route="{{route}}" use-hash-as-path></app-location>
-    <app-route route="{{route}}" pattern="/:page" data="{{routeData}}" tail="{{subroute}}"></app-route>
+            #mainToolbar .bottom {
+                margin-left: 48px;
+                /* Required for main area's paper-scroll-header-panel custom condensing transformation */
+                -webkit-transform-origin: left center;
+                transform-origin: left center;
+            }
 
-    <paper-scroll-header-panel condenses reveals effects="waterfall" main>     
-      <paper-toolbar class="tall" id="mainToolbar">
-        <div class="top"></div>
+            /* Height of the scroll area */
+            
+            .content {
+                height: 900px;
+            }
 
-        <div class="middle">
-          <a href="#/home" title="Geladaris Immobilien Logo">
-            <img src="../images/logo/logo.jpg" alt="Geladaris Immobilien Logo" class="logo">
-          </a>  
-        </div>
-        
-        <div class="bottom self-end">
-          <paper-tabs selected="{{page}}" attr-for-selected="name" class="" style="width: 450px;">
-            <paper-tab link name="home">
-              <a href="#/home" tabindex="-1">HOME</a>
-            </paper-tab>
-            <paper-tab link name="leistungen">
-              <a href="#/leistungen" tabindex="-1">LEISTUNGEN</a>
-            </paper-tab>
-            <paper-tab link name="kontakt">
-              <a href="#/kontakt" tabindex="-1">KONTAKT</a>
-            </paper-tab>
-          </paper-tabs>
-        </div>
-      </paper-toolbar>
+		</style>
 
+		<app-location route="{{route}}" use-hash-as-path></app-location>
+		<app-route route="{{route}}" pattern="/:page" data="{{routeData}}"></app-route>
 
-      <iron-pages selected="[[page]]" attr-for-selected="name" fallback-selection="404" role="main">
-        <page-home name="home"></page-home>
-        <page-leistungen name="leistungen"></page-leistungen>
-        <page-kontakt name="kontakt"></page-kontakt>
-        <page-404 name="404"></page-404>
-      </iron-pages>
-    </paper-scroll-header-panel>
+		<paper-drawer-panel force-narrow id="paperDrawerPanel">
+			<!-- Drawer Scroll Header Panel -->
+			<paper-scroll-header-panel drawer fixed>
+				<!-- Drawer Toolbar -->
+				<paper-toolbar id="drawerToolbar">
+					<span class="paper-font-title">Menu</span>
+				</paper-toolbar>
 
-  </template>
+                <!-- Drawer Content -->
+                <paper-menu class="list" attr-for-selected="page" selected="{{data.page}}">
+                    <a page="home" href="#/">
+                        <iron-icon icon="home"></iron-icon>
+                        <span>Home</span>
+                    </a>
 
-  <script>
-    Polymer({
-      is: 'my-app',
+                    <a page="users" href="#/users">
+                        <iron-icon icon="info"></iron-icon>
+                        <span>Users</span>
+                    </a>
 
-      properties: {
-        page: {
-          type: String,
-          reflectToAttribute: true,
-          observer: '_pageChanged'
-        }
-      },
+                    <a page="about" href="#/about">
+                        <iron-icon icon="accessibility"></iron-icon>
+                        <span>About</span>
+                    </a>
 
-      listeners: {
-        'paper-header-transform': '_transformHeader'
-      },
+                    <a page="contact" href="#/contact">
+                        <iron-icon icon="mail"></iron-icon>
+                        <span>Contact</span>
+                    </a>
+                </paper-menu>
+			</paper-scroll-header-panel>
 
-      _transformHeader: function (e) {
-        var appName = this.$$('#mainToolbar');
-        var middleContainer = this.$$('#mainToolbar .middle');
-        var bottomContainer = this.$$('#mainToolbar .bottom');
+			<!-- Main Area -->
+			<paper-scroll-header-panel main id="headerPanelPain" condenses keep-condensed-header>
+				<paper-toolbar id="mainToolbar" class="tall">
+					<paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
+					<span class="flex"></span>
 
-        var detail = e.detail;
-        var heightDiff = detail.height - detail.condensedHeight;
-        var yRatio = Math.min(1, detail.y / heightDiff);
-        // appName max size when condensed. The smaller the number the smaller the condensed size.
-        var maxMiddleScale = 0.50;
-        var auxHeight = heightDiff - detail.y;
-        var auxScale = heightDiff / (1 - maxMiddleScale);
-        var scaleMiddle = Math.max(maxMiddleScale, auxHeight / auxScale + maxMiddleScale);
-        var scaleBottom = 1 - yRatio;
+					<!-- Application Name -->
+					<div class="middle middle-container center horizontal layout">
+						<div class="Logo app-name">
+							<img src="/images/logo/logo.jpg" class="Logo__image" alt="">
+						</div>
+					</div>
 
-        // Move/translate middleContainer
-        Polymer.Base.transform('translate3d(0,' + yRatio * 100 + '%,0)', middleContainer);
+					<!-- Application sub title -->
+					<div class="bottom bottom-container horizontal layout">
+                        <paper-tabs selected="0" class="self-end" style="width: 300px;">
+                            <paper-tab link>
+                                <a page="home" href="#/" class="link">Home</a>
+                            </paper-tab>
+                            <paper-tab link>
+                                <a page="users" href="#/users" class="link">Users</a>
+                            </paper-tab>
+                            <paper-tab link>
+                                <a page="about" href="#/about" class="link">About</a>
+                            </paper-tab>
+                            <paper-tab link>
+                                <a page="contact" href="#/contact" class="link">Contact</a>
+                            </paper-tab>
+                        </paper-tabs>
+					</div>
+				</paper-toolbar>
 
-        // Scale bottomContainer and bottom sub title to nothing and back
-        Polymer.Base.transform('scale(' + scaleBottom + ') translateZ(0)', bottomContainer);
+				<!-- Main Content -->
+				<div class="content">
+					<iron-pages selected="[[page]]" attr-for-selected="name" fallback-selection="404" role="main">
+						<page-home name="home"></page-home>
+						<page-leistungen name="leistungen"></page-leistungen>
+						<page-kontakt name="kontakt"></page-kontakt>
+						<page-404 name="404"></page-404>
+					</iron-pages>
+				</div>
+			</paper-scroll-header-panel>
+		</paper-drawer-panel>
+	</template>
 
-        // Scale middleContainer appName
-        Polymer.Base.transform('scale(' + scaleMiddle + ') translateZ(0)', appName);
-      },
+	<script>
+		Polymer({
+			is: 'my-app',
 
-      ready: function () {
+			properties: {
+				page: {
+					type: String,
+					reflectToAttribute: true,
+					observer: '_pageChanged'
+				}
+			},
 
-      },
+			listeners: {
+					'paper-header-transform': 'transformHeader'
+			},
 
-      observers: [
-        '_routePageChanged(routeData.page)'
-      ],
+			transformHeader: function(e) {
+				var appName = Polymer.dom(this.root).querySelector('#mainToolbar .app-name');
+				var middleContainer = Polymer.dom(this.root).querySelector('#mainToolbar .middle-container');
+				var bottomContainer = Polymer.dom(this.root).querySelector('#mainToolbar .bottom-container');
+				var detail = e.detail;
+				var heightDiff = detail.height - detail.condensedHeight;
+				var yRatio = Math.min(1, detail.y / heightDiff);
+				// appName max size when condensed. The smaller the number the smaller the condensed size.
+				var maxMiddleScale = 0.50;
+				var auxHeight = heightDiff - detail.y;
+				var auxScale = heightDiff / (1 - maxMiddleScale);
+				var scaleMiddle = Math.max(maxMiddleScale, auxHeight / auxScale + maxMiddleScale);
+				var scaleBottom = 1 - yRatio;
 
-      _routePageChanged: function(page) {
-        this.page = page || 'home';
-      },
+				// Move/translate middleContainer
+				Polymer.Base.transform('translate3d(0,' + yRatio * 100 + '%,0)', middleContainer);
 
-      _pageChanged: function(page) {
-        // Load page import on demand. Show 404 page if fails
-        var resolvedPageUrl = this.resolveUrl('views/page-' + page + '.html');
-        this.importHref(resolvedPageUrl, null, this._showPage404, true);
-      },
+				// Scale bottomContainer and bottom sub title to nothing and back
+				Polymer.Base.transform('scale(' + scaleBottom + ') translateZ(0)', bottomContainer);
 
-      _showPage404: function() {
-        this.page = '404';
-      }
-    });
-  </script>
+				// Scale middleContainer appName
+				Polymer.Base.transform('scale(' + scaleMiddle + ') translateZ(0)', appName);
+			},
+
+			observers: [
+				'_routePageChanged(routeData.page)'
+			],
+
+			_routePageChanged: function(page) {
+				this.page = page || 'home';
+			},
+
+			_pageChanged: function(page) {
+				// Load page import on demand. Show 404 page if fails
+				var resolvedPageUrl = this.resolveUrl('views/page-' + page + '.html');
+				this.importHref(resolvedPageUrl, null, this._showPage404, true);
+			},
+
+			_showPage404: function() {
+				this.page = '404';
+			}
+		});
+	</script>
 </dom-module>
