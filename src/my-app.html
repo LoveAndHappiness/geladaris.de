@@ -119,6 +119,12 @@
                 height: 900px;
             }
 
+            .self-end {
+            /* This mixin (from iron-flex-layout) aligns the tabs to the
+               bottom of the toolbar. */
+                @apply(--layout-self-end);
+            }
+
 		</style>
 
 		<app-location route="{{route}}" use-hash-as-path></app-location>
@@ -165,19 +171,18 @@
 					</div>
 
 					<!-- Application sub title -->
-					<div class="bottom bottom-container horizontal layout">
-                        <paper-tabs selected="0" class="self-end" style="width: 300px;">
-                            <paper-tab link>
-                                <a page="home" href="#/" class="link">Home</a>
-                            </paper-tab>
-                            <paper-tab link>
-                                <a page="leistungen" href="#/leistungen" class="link">Leistungen</a>
-                            </paper-tab>
-                            <paper-tab link>
-                                <a page="kontakt" href="#/kontakt" class="link">Kontakt</a>
-                            </paper-tab>
-                        </paper-tabs>
-					</div>
+                    <paper-tabs selected="0" class="bottom bottom-container self-end" style="width: 300px;">
+                        <paper-tab link>
+                            <a page="home" href="#/" class="link">Home</a>
+                        </paper-tab>
+                        <paper-tab link>
+                            <a page="leistungen" href="#/leistungen" class="link">Leistungen</a>
+                        </paper-tab>
+                        <paper-tab link>
+                            <a page="kontakt" href="#/kontakt" class="link">Kontakt</a>
+                        </paper-tab>
+                    </paper-tabs>
+
 				</paper-toolbar>
 
 				<!-- Main Content -->
