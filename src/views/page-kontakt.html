@@ -4,17 +4,31 @@
 <dom-module id="page-kontakt">
 	<template>
 	    <style include="shared-styles">
-	      :host {
-	        display: block;
+	      	:host {
+		        display: block;
 
-	        padding: 10px;
-	      }
+		        padding: 10px;
+	      	}
+
+	      	google-map {
+				height: 400px;
+				max-width: 600px;
+			}
 	    </style>
+
 	    <div class="card">
-	      <div class="circle">3</div>
 	      <h1>Kontakt</h1>
-	      <p>Ut labores minimum atomorum pro. Laudem tibique ut has.
-	      <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
+	      <p>Geladaris Immobilien <br>
+      		Bleicherstr. 7 <br>
+      		42283 Wuppertal <br>
+      		Tel.: 0202 / 2604290 <br>
+      		E-Mail: info@geladaris.de
+	    <p>
+
+		<google-map api-key="AIzaSyAc9Hw2qE9koj_i36KhNOyCKivPG5kzvaQ" map="[[map]]" latitude="51.270155" longitude="7.193181" zoom="14">
+			<google-map-marker latitude="51.270155" longitude="7.193181" title="Geladaris Immobilien"></google-map-marker>
+		</google-map>
+
 	    </div>
 	</template>
 	<script>
