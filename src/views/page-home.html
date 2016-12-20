@@ -9,31 +9,35 @@
         display: block;
       }
 
-      .cover {
-        background-image: url(../../images/520322506.jpg);
-        background-size: cover;
-        height: 60vw;
+      .wrapper {
+        height: calc(100vh - 300px);
       }
 
       h1 {
         padding-top: 16px;
         margin-top: 0px;
       }
+
+      .home-copy {
+        max-width: 400px;
+      }
     </style>
 
-    <div class="cover">
-      <h1>My Home is Here</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae in optio recusandae eveniet corrupti quis id libero aperiam minima, ex, quod similique praesentium culpa ut repellendus consequuntur dolorem laborum. Facilis minus odit debitis similique tenetur nam provident repellat illo nihil voluptatum eveniet, ducimus nesciunt mollitia quibusdam, laborum iste impedit id.</p>
+    <div class="wrapper">
+      <paper-material elevation="1" class="home-copy">
+        <h1>Willkommen bei Geladaris Immobilien!</h1>
+        <p>Wir sind Ihr zuverlässiger Partner für Fragen und Dienstleistungen rund um die Immobilien. Bei Kauf/Verkauf und Miete/Vermietung stehen wir Ihnen gerne mit unserer Erfahrung zur Seite und beraten Sie fachgerecht.</p>
+        <paper-button raised>Jetzt kontaktieren!</paper-button>
+      </paper-material>
     </div>
 
-    <div class="card">
-      <div class="circle">1</div>
+    <paper-material elevation="1">
       <h1>my home</h1>
       <p>Ut labores minimum atomorum pro. Laudem tibique ut has.
       <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
 
       <sample-content size="30"></sample-content>
-    </div>
+    </paper-material>>
   </template>
 	<script>
 		Polymer({

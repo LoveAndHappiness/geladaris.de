@@ -116,7 +116,7 @@
             /* Height of the scroll area */
             
             .content {
-                height: 900px;
+                /*height: 900px;*/
             }
 
             .self-end {
@@ -188,10 +188,10 @@
 				<!-- Main Content -->
 				<div class="content">
 					<iron-pages selected="[[page]]" attr-for-selected="name" fallback-selection="404" role="main">
-						<page-home name="home"></page-home>
-						<page-leistungen name="leistungen"></page-leistungen>
-						<page-kontakt name="kontakt"></page-kontakt>
-						<page-404 name="404"></page-404>
+						<page-home class="Page" name="home"></page-home>
+						<page-leistungen class="Page" name="leistungen"></page-leistungen>
+						<page-kontakt class="Page" name="kontakt"></page-kontakt>
+						<page-404 class="Page" name="404"></page-404>
 					</iron-pages>
 				</div>
 			</paper-scroll-header-panel>

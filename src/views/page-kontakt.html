@@ -2,38 +2,86 @@
 <link rel="import" href="../shared-styles.html">
 
 <dom-module id="page-kontakt">
-	<template>
-	    <style include="shared-styles">
-	      	:host {
-		        display: block;
+    <template>
+        <style include="shared-styles">
+            :host {
+                display: flex;
+                justify-content: center;
+            }
 
-		        padding: 10px;
-	      	}
+            .Page {
+            	width: 980px;
+            	display: flex;
+            	justify-content: space-between;
+            	flex-direction: column;
+            }
 
-	      	google-map {
-				height: 400px;
-				max-width: 600px;
+            .Page__section {
+            	display: flex;
+            	justify-content: flex-end;
+            	padding: 50px 0px;
+            }
+
+            .Page__item {
+				padding: 40px;
+            	max-width: 400px;
+            }
+
+            .Page__map {
+            	/*margin-top: 100px;*/
+				/*padding: 0px;*/
+				width: 100%;
+				height: 280px;
+            }
+
+		    @media (max-width: 600px) {
+		    	.Page__section {
+					padding: 20px;
+		    	}
+
+			    .Page__item {
+			      margin: 20px;
+			      padding: 20px;
+			    }
 			}
-	    </style>
+        </style>
+		
+		<div class="Page">
+			<div class="Page__section">
+		        <paper-material class="Page__item" elevation="1">
+		        	<span>
+			            <h1>Kontakt</h1>
+			            <p>Geladaris Immobilien
+			                <br> Bleicherstr. 7
+			                <br> 42283 Wuppertal
+			                <br> Tel.: 0202 / 2604290
+			                <br> E-Mail: info@geladaris.de
+			            </p>
+		        	</span>
+					<br>
+					<br>
+		        	<span>
+			            <h1>Öffnungszeiten</h1>
+			            <p>
+			            Montag bis Freitag von 09:00 - 14:00 Uhr <br>
+			            <br>
+			            Nach 14:00 mit Terminabsprache unter 0202 / 2604290
+			            </p>
+		        	</span>
+		        </paper-material>
+			</div>
 
-	    <div class="card">
-	      <h1>Kontakt</h1>
-	      <p>Geladaris Immobilien <br>
-      		Bleicherstr. 7 <br>
-      		42283 Wuppertal <br>
-      		Tel.: 0202 / 2604290 <br>
-      		E-Mail: info@geladaris.de
-	    <p>
+			<paper-material class="Page__map" elevation="1">
+				<google-map api-key="AIzaSyAc9Hw2qE9koj_i36KhNOyCKivPG5kzvaQ" map="[[map]]" latitude="51.270155" longitude="7.193181" zoom="15">
+					<google-map-marker latitude="51.269995" longitude="7.193205" title="Geladaris Immobilien"></google-map-marker>
+				</google-map>
+			</paper-material>
+		</div>
 
-		<google-map api-key="AIzaSyAc9Hw2qE9koj_i36KhNOyCKivPG5kzvaQ" map="[[map]]" latitude="51.270155" longitude="7.193181" zoom="14">
-			<google-map-marker latitude="51.270155" longitude="7.193181" title="Geladaris Immobilien"></google-map-marker>
-		</google-map>
-
-	    </div>
-	</template>
-	<script>
-		Polymer({
-			is: 'page-kontakt'
-		});
-	</script>
+    </template>
+    <script>
+        Polymer({
+            is: 'page-kontakt'
+        });
+    </script>
 </dom-module>
