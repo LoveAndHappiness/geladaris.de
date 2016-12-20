@@ -2,28 +2,49 @@
 
 <!-- shared styles for all views -->
 <dom-module id="shared-styles">
-  <template>
-    <style>
-      h1 {
-        margin: 16px 0;
-        color: #212121;
-        font-size: 22px;
-        margin-top: 0px;
-      }
+	<template>
+		<style>
+			h1 {
+				margin: 16px 0;
+				color: #212121;
+				font-size: 22px;
+				margin-top: 0px;
+			}
+			p {
+				margin-bottom: 0px;
+			}
+			paper-material {
+				background-color: #fff;
+			}
+			.Page {
+				width: 990px;
+				display: flex;
+				justify-content: space-between;
+				flex-direction: column;
+			}
+			.Page__section {
+				display: flex;
+				justify-content: flex-end;
+				padding: 50px 0px;
+			}
+			.Page__item {
+				padding: 40px;
+				max-width: 330px;
+			}
+			.Page__map {
+				width: 100%;
+				height: 280px;
+			}
+			/* Media Query for small Screens */
+			@media (max-width: 600px) {
+				.Page__section {
+					padding: 20px;
+					justify-content: center;
+				}
+				.Page__item {
 
-      p {
-        margin-bottom: 0px;
-      }
-
-      paper-material {
-        background-color: #fff!important;
-        /*margin: 50px;*/
-        /*padding: 50px;*/
-        width: 300px;
-      }
-
-      /* Special Rules for Smartphones */
-
-    </style>
-  </template>
+				}
+			}
+		</style>
+	</template>
 </dom-module>
