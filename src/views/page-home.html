@@ -3,42 +3,51 @@
 <link rel="import" href="../../bower_components/paper-scroll-header-panel/demo/sample-content.html">
 
 <dom-module id="page-home">
-  <template>
-    <style include="shared-styles">
-      :host {
-        display: block;
-      }
+	<template>
+		<style include="shared-styles">
+			:host {
+				display: flex;
+				justify-content: center;
+			}
 
-      .wrapper {
-        height: calc(100vh - 300px);
-      }
+			.wrapper {
+				height: calc(100vh - 300px);
+			}
 
-      h1 {
-        padding-top: 16px;
-        margin-top: 0px;
-      }
+			h1 {
+				padding-top: 16px;
+				margin-top: 0px;
+			}
 
-      .home-copy {
-        max-width: 400px;
-      }
-    </style>
+			.home-copy {
+				max-width: 400px;
+			}
+		</style>
 
-    <div class="wrapper">
-      <paper-material elevation="1" class="home-copy">
-        <h1>Willkommen bei Geladaris Immobilien!</h1>
-        <p>Wir sind Ihr zuverlässiger Partner für Fragen und Dienstleistungen rund um die Immobilien. Bei Kauf/Verkauf und Miete/Vermietung stehen wir Ihnen gerne mit unserer Erfahrung zur Seite und beraten Sie fachgerecht.</p>
-        <paper-button raised>Jetzt kontaktieren!</paper-button>
-      </paper-material>
-    </div>
+		<div class="Page">
+			<div class="Page__section">
+				<paper-material class="Page__item Page__item-small" elevation="1" class="home-copy">
+					<h1>Willkommen bei Geladaris Immobilien!</h1>
+					<p>Wir sind Ihr zuverlässiger Partner für Fragen und Dienstleistungen rund um die Immobilien. Bei Kauf/Verkauf und Miete/Vermietung stehen wir Ihnen gerne mit unserer Erfahrung zur Seite und beraten Sie fachgerecht.</p>
+					<paper-button raised>Jetzt kontaktieren!</paper-button>
+				</paper-material>
+			</div>
 
-    <paper-material elevation="1">
-      <h1>my home</h1>
-      <p>Ut labores minimum atomorum pro. Laudem tibique ut has.
-      <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
+			<div class="Page__section">
+				<paper-material class="Page__item" elevation="1">
+					<span>
+						<h1>my home</h1>
+						<p>Ut labores minimum atomorum pro. Laudem tibique ut has.
+						<p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
+					</span>
 
-      <sample-content size="30"></sample-content>
-    </paper-material>>
-  </template>
+					<span>
+						<sample-content size="30"></sample-content> 
+					</span>
+				</paper-material>
+			</div>
+		</div>
+	</template>
 	<script>
 		Polymer({
 			is: 'page-home'
