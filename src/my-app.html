@@ -124,7 +124,6 @@
                bottom of the toolbar. */
                 @apply(--layout-self-end);
             }
-
 		</style>
 
 		<app-location route="{{route}}" use-hash-as-path></app-location>
@@ -187,7 +186,7 @@
 
 				<!-- Main Content -->
 				<div class="content">
-					<iron-pages selected="[[page]]" attr-for-selected="name" fallback-selection="404" role="main">
+					<iron-pages selected="{{page}}" attr-for-selected="name" fallback-selection="404" role="main">
 						<page-home class="Page" name="home"></page-home>
 						<page-leistungen class="Page" name="leistungen"></page-leistungen>
 						<page-kontakt class="Page" name="kontakt"></page-kontakt>
