@@ -38,7 +38,7 @@ return [
     // and store them locally
     'connections'      => [
         'production' => [
-            'host'      => '138.68.106.146',
+            'host'      => '138.68.99.157',
             'username'  => 'root',
             'password'  => '',
             'key'       => '/home/vagrant/.ssh/id_rsa',
@@ -75,7 +75,11 @@ return [
     'on'               => [
 
         // Stages configurations
-        'stages'      => ['production', 'stage'],
+        'stages'      => [
+            'production' => [
+                'scm' = > ['branch' => 'master']
+            ]
+        ],
         // Connections configuration
         'connections' => [],
 
