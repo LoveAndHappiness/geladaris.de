@@ -1,18 +1,35 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../shared-styles.html">
+<link rel="import" href="../../bower_components/paper-scroll-header-panel/demo/sample-content.html">
 
 <dom-module id="page-404">
   <template>
-    <style>
+    <style include="shared-styles">
       :host {
-        display: block;
+        display: flex;
+        justify-content: center;
+      }
 
-        padding: 10px 20px;
+      .wrapper {
+        height: calc(100vh - 300px);
+      }
+
+      .home-copy {
+        max-width: 400px;
       }
     </style>
 
-    Oops you hit a 404. <a href="/#/home">Head back to home.</a>
+    <div class="Page">
+      <div class="Page__section">
+        <paper-material class="Page__item Page__item-small" elevation="1" class="home-copy">
+          <div class="Page__item-text">
+            <h1>404 - Seite nicht gefunden!</h1>
+            <p>Oops, Sie haben eine Seite aufgerufen, die nicht existiert. <a href="/#/home">Zurück nach Hause?</a></p>
+          </div>
+        </paper-material>
+      </div>
+    </div>
   </template>
-
   <script>
     Polymer({
       is: 'page-404'
