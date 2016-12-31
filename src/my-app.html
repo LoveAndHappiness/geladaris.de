@@ -150,7 +150,7 @@
 				</paper-toolbar>
 
                 <!-- Drawer Content -->
-                <paper-menu class="list" attr-for-selected="page" selected="{{data.page}}">
+                <paper-menu class="list" attr-for-selected="page" selected="{{page}}">
                     <a page="home" href="#/">
                         <iron-icon icon="home"></iron-icon>
                         <span>Home</span>
@@ -258,6 +258,17 @@
 			observers: [
 				'_routePageChanged(routeData.page)'
 			],
+
+            _pageChanged: function(page) {
+                // Load page import on demand. Show 404 page if fails
+                // var resolvedPageUrl = this.resolveUrl('views/page-' + page + '.html');
+                // this.importHref(resolvedPageUrl, null, this._showPage404, true);
+                // console.log(this.page);
+            },
+
+            _showPage404: function() {
+                this.page = '404';
+            },
 
 			_routePageChanged: function(page) {
 				this.page = page || 'home';
