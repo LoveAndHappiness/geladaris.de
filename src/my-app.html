@@ -124,6 +124,18 @@
                bottom of the toolbar. */
                 @apply(--layout-self-end);
             }
+
+            #Footer {
+                background-color: #fff;
+                padding: 5px;
+                display: flex;
+                justify-content: flex-end;
+            }
+            #Footer a {
+                float: left;
+                text-decoration: none;
+                color: #212121;
+            }
 		</style>
 
 		<app-location route="{{route}}" use-hash-as-path></app-location>
@@ -190,9 +202,15 @@
 						<page-home class="Page" name="home"></page-home>
 						<page-leistungen class="Page" name="leistungen"></page-leistungen>
 						<page-kontakt class="Page" name="kontakt"></page-kontakt>
+                        <page-impressum class="Page" name="impressum"></page-impressum>
 						<page-404 class="Page" name="404"></page-404>
 					</iron-pages>
 				</div>
+                
+                <section id="Footer">
+                    <a page="impressum" href="#/impressum">Impressum</a>
+                </section>
+                
 			</paper-scroll-header-panel>
 		</paper-drawer-panel>
 	</template>
