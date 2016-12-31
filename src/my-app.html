@@ -139,7 +139,7 @@
 		</style>
 
 		<app-location route="{{route}}" use-hash-as-path></app-location>
-		<app-route route="{{route}}" pattern="/:page" data="{{routeData}}"></app-route>
+		<app-route route="{{route}}" pattern="/:page" data="{{data}}"></app-route>
 
 		<paper-drawer-panel force-narrow id="paperDrawerPanel">
 			<!-- Drawer Scroll Header Panel -->
@@ -182,15 +182,15 @@
 					</div>
 
 					<!-- Application sub title -->
-                    <paper-tabs selected="0" class="bottom bottom-container self-end" style="width: 300px;">
-                        <paper-tab link>
-                            <a page="home" href="#/" class="link">Home</a>
+                    <paper-tabs attr-for-selected="name" selected="{{data.page}}" class="bottom bottom-container self-end" style="width: 300px;">
+                        <paper-tab name="" link>
+                            <a  href="#/" class="link">Home</a>
                         </paper-tab>
-                        <paper-tab link>
-                            <a page="leistungen" href="#/leistungen" class="link">Leistungen</a>
+                        <paper-tab name="leistungen" link>
+                            <a href="#/leistungen" class="link">Leistungen</a>
                         </paper-tab>
-                        <paper-tab link>
-                            <a page="kontakt" href="#/kontakt" class="link">Kontakt</a>
+                        <paper-tab name="kontakt" link>
+                            <a href="#/kontakt" class="link">Kontakt</a>
                         </paper-tab>
                     </paper-tabs>
 
@@ -256,7 +256,7 @@
 			},
 
 			observers: [
-				'_routePageChanged(routeData.page)'
+				'_routePageChanged(data.page)'
 			],
 
             _pageChanged: function(page) {
