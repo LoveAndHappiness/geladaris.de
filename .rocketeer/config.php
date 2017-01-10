@@ -38,7 +38,7 @@ return [
     // and store them locally
     'connections'      => [
         'production' => [
-            'host'      => '138.68.99.157',
+            'host'      => '138.68.74.47',
             'username'  => 'root',
             'password'  => '',
             'key'       => '/home/vagrant/.ssh/id_rsa',
