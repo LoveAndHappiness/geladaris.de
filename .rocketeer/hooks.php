@@ -24,7 +24,7 @@ return [
     // Tasks to execute after the core Rocketeer Tasks
     'after'  => [
         'setup'   => [],
-        'deploy'  => ['bower install --allow-root'],
+        'deploy'  => ['bower install --allow-root', 'polymer build'],
         'cleanup' => [],
     ],
 

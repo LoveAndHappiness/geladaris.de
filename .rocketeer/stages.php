@@ -14,5 +14,5 @@ return [
 
     // The default stage to execute tasks on when --stage is not provided
     // Falsey means all of them
-    'default' => 'production',
+    'default' => 'staging',
 ];
