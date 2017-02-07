@@ -5,7 +5,7 @@
     "src/views/page-home.html",
     "src/views/page-impressum.html",
     "src/views/page-kontakt.html",
-    "src/views/page-leistungen.html"
+    "src/views/page-leistungen.html",
     "src/views/page-404.html"
   ],
   "sourceGlobs": [
