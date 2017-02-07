@@ -98,13 +98,24 @@
       }
     </script>
 
-    <link rel="import" href="../src/elements.html">
-    <link rel="stylesheet" href="../src/css/app.css">
+    <style type="text/css">
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', 'Noto', sans-serif;
+        line-height: 1.5;
+        background-color: #eeeeee;
+        background-image: url(../../images/520322506.jpg);
+        background-size: cover;
+      }      
+    </style>
     
+    <!-- <link rel="import" href="../bower_components/paper-styles/color.html"> -->
+    <link rel="import" href="../src/app-theme.html">
+    <link rel="import" href="/src/my-app.html">
   </head>
   <body class="fullbleed vertical layout">
     <my-app></my-app>
-    <!-- Built with love using Polymer Starter Kit -->
-
   </body>
 </html>

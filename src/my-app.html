@@ -1,4 +1,30 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/paper-drawer-panel/paper-drawer-panel.html">
+<link rel="import" href="../bower_components/paper-header-panel/paper-header-panel.html">
+<link rel="import" href="../bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
+<link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../bower_components/paper-menu/paper-menu.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+
+<!-- Maybe -->
+<link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-material/paper-material.html">
+
+
+<!-- Custom Elements -->
+<link rel="import" href="/src/views/page-404.html">
+<link rel="import" href="/src/views/page-home.html">
+<link rel="import" href="/src/views/page-impressum.html">
+<link rel="import" href="/src/views/page-kontakt.html">
+<link rel="import" href="/src/views/page-leistungen.html">
 
 <dom-module id="my-app">
 	<template>
@@ -15,26 +41,6 @@
             .Logo__image {
                 width: auto;
                 height: 63px;
-            }
-
-            iron-pages section #about .hero {
-                height: calc(100vh - 192px);
-            }
-            iron-pages section #about #two {
-                background: lightblue;
-            }
-
-            #about #one {
-                background: url("http://media.istockphoto.com/photos/this-is-the-essence-of-me-picture-id501196539?s=2048x2048") no-repeat center center;
-                background-size: cover;
-            }
-            
-            paper-scroll-header-panel {
-                position: absolute;
-                top: 0px;
-                bottom: 0px;
-                left: 0px;
-                right: 0px;
             }
 
             /***********************************/

@@ -2,13 +2,7 @@
   "entrypoint": "index.html",
   "shell": "src/my-app.html",
   "fragments": [
-    "src/my-app.html",
-    "src/elements.html",
-    "src/views/page-home.html",
-    "src/views/page-impressum.html",
-    "src/views/page-kontakt.html",
-    "src/views/page-leistungen.html",
-    "src/views/page-404.html"
+    "src/my-app.html"
   ],
   "sourceGlobs": [
    "src/**/*",
